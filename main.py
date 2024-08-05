@@ -89,7 +89,7 @@ class filterdialogwindow(QDialog):
         w.cbLogbook.stateChanged.connect(self.cbLogbook_change)
         w.cbTag.stateChanged.connect(self.cbTag_change)
         w.exec()
-    
+
     def load_filterdiagui(self):
         ui = loadUi(os.path.join(os.path.dirname(__file__), 'filterdialog.ui'), self)
         filterStruct.globals2zero(self)
@@ -109,13 +109,13 @@ class filterdialogwindow(QDialog):
             vglobals.global_doFilter = True
         else:
             self.leID.setDisabled(1)
-    
+
     def cbDescription_change(self):
         if (self.cbDescription.isChecked()):
             self.leDescription.setEnabled(1)
             vglobals.global_doFilter = True
         else:
-            self.leDescription.setDisabled(1)        
+            self.leDescription.setDisabled(1)
 
     def cbLogbook_change(self):
         if (self.cbLogbook.isChecked()):
@@ -130,7 +130,7 @@ class filterdialogwindow(QDialog):
             vglobals.global_doFilter = True
         else:
             self.leTag.setDisabled(1)
-    
+
 class filterStruct:
     doFilter = False
     leID =          None
@@ -159,7 +159,7 @@ class filterStruct:
         if self.cbTag.isChecked():
             vglobals.global_leTag =          filterStruct.list_item_split(\
                 filterStruct.str2list(self.leTag.text(), 'Tag'))
-    
+
     def globals2zero(self):
         vglobals.global_doFilter = False
         vglobals.global_leID = ''
@@ -220,7 +220,7 @@ class filterStruct:
         for i in range(len(lista)):
             lista[i] = lista[i].strip()
         return lista
-        
+
 
 if __name__ == "__main__":
     app = QApplication([])
